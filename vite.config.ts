@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
-  base: "/",
+  base: "/sonachala-lifespace/",
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {

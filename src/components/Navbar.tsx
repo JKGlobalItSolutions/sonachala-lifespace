@@ -98,12 +98,31 @@ const Navbar = () => {
   const mobileMenuClasses = THEME_VARIANTS.mobile.menu[themeMode];
   const mobileToggleClasses = THEME_VARIANTS.mobile.toggle[themeMode];
 
+  const handleLinkClick = (path: string) => {
+    if (currentPath === path) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <nav className={navbarClasses}>
       {/* Brand + navigation wrapper */}
       <div className="container mx-auto flex items-center justify-between gap-3 px-4 py-0">
-        <Link to="/" className="flex items-center gap-3 flex-shrink-0">
-          <img src={scrolled ? logo2 : logo} alt="SONACHALA" className="flex-shrink-0 h-[72px] w-auto object-contain" />
+        <Link 
+          to="/" 
+          className="flex items-center gap-3 flex-shrink-0"
+          onClick={() => handleLinkClick("/")}
+        >
+          <img 
+            src={scrolled ? logo2 : logo} 
+            alt="SONACHALA" 
+            className={`flex-shrink-0 w-auto object-contain transition-all duration-300 ${
+              scrolled ? "h-[52px]" : "h-[72px]"
+            }`} 
+          />
           <div className="hidden lg:block">
             <p className={logoTitleClasses}><b>SONACHALA LIFESPACES</b></p>
             <span className={logoLabelClasses}>Interior & Exterior</span>
@@ -118,14 +137,22 @@ const Navbar = () => {
 
             return (
               <li key={link.path}>
-                <Link to={link.path} className={linkClasses}>
+                <Link 
+                  to={link.path} 
+                  className={linkClasses}
+                  onClick={() => handleLinkClick(link.path)}
+                >
                   {link.label}
                 </Link>
               </li>
             );
           })}
           <li>
-            <Link to="/contact" className="btn-primary whitespace-nowrap">
+            <Link 
+              to="/contact" 
+              className="btn-primary whitespace-nowrap"
+              onClick={() => handleLinkClick("/contact")}
+            >
               Get Quote
             </Link>
           </li>
@@ -154,14 +181,28 @@ const Navbar = () => {
 
                 return (
                   <li key={link.path}>
-                    <Link to={link.path} className={mobileLinkClasses}>
+                    <Link 
+                      to={link.path} 
+                      className={mobileLinkClasses}
+                      onClick={() => {
+                        handleLinkClick(link.path);
+                        setMobileOpen(false);
+                      }}
+                    >
                       {link.label}
                     </Link>
                   </li>
                 );
               })}
               <li>
-                <Link to="/contact" className="btn-primary w-full text-center">
+                <Link 
+                  to="/contact" 
+                  className="btn-primary w-full text-center"
+                  onClick={() => {
+                    handleLinkClick("/contact");
+                    setMobileOpen(false);
+                  }}
+                >
                   Get Quote
                 </Link>
               </li>

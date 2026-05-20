@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Pure white background for high contrast */
+    --background: 0 0% 100%;
+    
+    /* Rich, elegant deep green for primary text */
+    --foreground: 165 60% 8%;
+    
+    --surface: 165 20% 98%;
+    --surface-strong: 165 20% 95%;
+    
+    /* Card details in light/white sections */
+    --card: 0 0% 100%;
+    --card-foreground: 165 60% 8%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 165 60% 8%;
+
+    /* Vivid emerald green for primary actions & highlights */
+    --primary: 162 92% 35%;
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 165 85% 55%;
+
+    /* Premium secondary forest green */
+    --secondary: 165 75% 23%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 165 15% 94%;
+    --muted-foreground: 165 15% 42%;
+
+    --accent: 165 80% 20%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 354 70% 54%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 165 20% 92%;
+    --input: 165 20% 95%;
+    --ring: 162 92% 35%;
+
+    --radius: 1.5rem;
+
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  .dark {
+    --background: 165 45% 6%;
+    --foreground: 165 20% 96%;
+    --surface: 165 30% 9%;
+    --surface-strong: 165 30% 12%;
+    --card: 165 30% 10%;
+    --card-foreground: 165 20% 96%;
+    --popover: 165 30% 10%;
+    --popover-foreground: 165 20% 96%;
+
+    --primary: 162 92% 40%;
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 165 85% 60%;
+
+    --secondary: 165 75% 26%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 165 25% 15%;
+    --muted-foreground: 165 15% 65%;
+
+    --accent: 165 80% 25%;
+    --accent-foreground: 0 0% 100%;
+
+    --border: 165 20% 18%;
+    --input: 165 20% 16%;
+    --ring: 162 92% 40%;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    min-height: 100%;
+    background-color: hsl(var(--background));
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply min-h-screen bg-background text-foreground font-body antialiased;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+
+  a {
+    @apply transition-all duration-300;
+  }
+}
+
+@layer components {
+  /* Standardized responsive vertical padding system */
+  .section-padding {
+    @apply px-4 py-20 sm:px-6 md:px-8 md:py-24 lg:px-12 xl:px-16;
+  }
+
+  /* Premium subtle shadow systems */
+  .card-shadow {
+    box-shadow: 0 12px 40px -15px rgba(11, 61, 49, 0.08);
+  }
+
+  .card-shadow-hover {
+    box-shadow: 0 20px 50px -12px rgba(11, 61, 49, 0.14);
+  }
+
+  /* Glassmorphic card tailored for White Sections */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(11, 61, 49, 0.08);
+    backdrop-filter: blur(16px);
+  }
+
+  /* Luxury Glassmorphic card tailored for Dark Green Sections */
+  .glass-card-green {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 25px 60px -20px rgba(0, 0, 0, 0.4);
+  }
+
+  .glass-card-green:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Premium Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-gradient-to-r from-primary to-secondary text-primary-foreground px-7 py-3 text-sm font-semibold tracking-wide shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:brightness-105 active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-white/20 bg-white text-secondary px-7 py-3 text-sm font-semibold tracking-wide shadow-sm transition-all duration-300 hover:bg-white/90 hover:-translate-y-0.5 hover:shadow-md active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-full border border-primary/20 bg-transparent text-primary px-6 py-3 text-sm font-semibold tracking-wide transition-all duration-300 hover:border-primary hover:bg-primary/10;
+  }
+
+  .btn-outline-white {
+    @apply inline-flex items-center justify-center rounded-full border border-white/30 bg-transparent text-white px-6 py-3 text-sm font-semibold tracking-wide transition-all duration-300 hover:border-white hover:bg-white/10;
+  }
+
+  .text-gradient-primary {
+    background-image: linear-gradient(135deg, #039164, #0b3d31);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+}
+
+@layer utilities {
+  .bg-section-dark {
+    background: linear-gradient(180deg, #06231c 0%, #0b3d31 60%, #0d4638 100%);
+  }
+
+  .border-soft {
+    border-color: rgba(11, 61, 49, 0.08);
+  }
+
+  .shadow-soft {
+    box-shadow: 0 15px 45px -18px rgba(11, 61, 49, 0.2);
+  }
+}

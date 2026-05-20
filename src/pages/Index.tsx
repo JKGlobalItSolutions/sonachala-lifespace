@@ -39,10 +39,10 @@ const projects = [
 ];
 
 const testimonials = [
-  { name: "Rahul Sharma", text: "SONACHALA transformed our home beyond our imagination. Every detail was crafted to perfection. The team was professional and delivered on time!", role: "Homeowner" },
-  { name: "Priya Patel", text: "Professional team, timely delivery, and stunning results. Our villa looks like a magazine cover now. Highly recommend their services!", role: "Villa Owner" },
-  { name: "Ankit Mehta", text: "The best investment we made for our business. Our office space looks world-class and employee satisfaction has significantly improved.", role: "Business Owner" },
-  { name: "Sneha Reddy", text: "From false ceiling to modular kitchen, SONACHALA handled everything seamlessly. Their attention to detail is truly remarkable.", role: "Apartment Owner" },
+  { name: "Kirubakaran", text: "SONACHALA transformed our home beyond our imagination. Every detail was crafted to perfection. The team was professional and delivered on time!", role: "Homeowner" },
+  { name: "Priya", text: "Professional team, timely delivery, and stunning results. Our villa looks like a magazine cover now. Highly recommend their services!", role: "Villa Owner" },
+  { name: "Mahalakshmi", text: "The best investment we made for our business. Our office space looks world-class and employee satisfaction has significantly improved.", role: "Business Owner" },
+  { name: "Kumar", text: "From false ceiling to modular kitchen, SONACHALA handled everything seamlessly. Their attention to detail is truly remarkable.", role: "Apartment Owner" },
 ];
 
 const Index = () => {
